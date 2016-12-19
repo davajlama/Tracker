@@ -1,0 +1,27 @@
+parameters:
+
+extensions:
+    console: Kdyby\Console\DI\ConsoleExtension
+
+application:
+    errorPresenter: Error
+    mapping:
+        *: App\*Module\Presenters\*Presenter
+
+session:
+    expiration: 14 days
+
+
+console:
+    commands:
+        - Davajlama\SchemaBuilder\SchemaCommand
+
+services:
+    router: App\RouterFactory::createRouter
+
+
+
+
+# tables
+    - {class: "App\\Tables\\MessagesTable", tags: ["schemabuilder.collector.table"]}
+    - {class: "App\\Tables\\UsersTable", tags: ["schemabuilder.collector.table"]}
