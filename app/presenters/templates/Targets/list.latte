@@ -1,0 +1,26 @@
+{block content}
+
+<form method="post">
+    <input type="hidden" name="action" value="create-new" />
+    Název: <input type="text" name="name" /></br>
+    Host: <input type="text" name="host" /></br>
+    <button>Přidat</button>
+</form>
+
+
+<table>
+    <tr>
+        <td>#</td>
+        <td>Name</td>
+        <td>Url</td>
+        <td></td>
+    </tr>
+    {foreach $list as $item}
+        <tr>
+            <td>{$item->getId()}</td>
+            <td>{$item->getName()}</td>
+            <td>{$item->getHost()}</td>
+            <td><a n:href="delete, id => $item->getId()">DELETE</a></td>
+        </tr>
+    {/foreach}
+</table>

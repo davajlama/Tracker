@@ -20,8 +20,11 @@ services:
     router: App\RouterFactory::createRouter
 
 
-
+    - App\Targets\TargetsRepository
+    - App\Messages\MessagesRepository
+    - App\Messages\MessagesStore
 
 # tables
-    - {class: "App\\Tables\\MessagesTable", tags: ["schemabuilder.collector.table"]}
+    - {class: "App\\Messages\\MessagesTable", tags: ["schemabuilder.collector.table"]}
     - {class: "App\\Tables\\UsersTable", tags: ["schemabuilder.collector.table"]}
+    - {class: "App\\Targets\\TargetsTable", tags: ["schemabuilder.collector.table"]}
