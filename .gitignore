@@ -1,6 +1,2 @@
 app/config/config.local.neon
 /vendor
-/temp
-/log
-
-/app/model/SchemaBuilder
