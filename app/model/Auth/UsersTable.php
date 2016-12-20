@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tables;
+namespace App\Auth;
 
 /**
  * Description of UsersTable
@@ -16,6 +16,7 @@ class UsersTable implements \Davajlama\SchemaBuilder\Collector\TableInterface
         $table->createId();
         $table->createColumn('username', \Davajlama\SchemaBuilder\Schema\Type::varcharType(64));
         $table->createColumn('password', \Davajlama\SchemaBuilder\Schema\Type::varcharType(64));
+        $table->createUniqueIndex()->addColumn('username');
         
         return $table;
     }

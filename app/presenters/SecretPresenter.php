@@ -10,4 +10,14 @@ namespace App\Presenters;
 class SecretPresenter extends \Nette\Application\UI\Presenter
 {
     
+    public function startup()
+    {
+        parent::startup();
+        
+        if(!$this->getUser()->isLoggedIn()) {
+            $this->redirect('Login:login');
+        }
+        
+    }
+    
 }

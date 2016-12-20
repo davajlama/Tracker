@@ -26,6 +26,8 @@ class MessagesTable implements TableInterface
         $table->createColumn('created', Type::integerType());
         $table->createColumn('hash', Type::varcharType(255));
         
+        $table->createIndex()->addColumn('created');
+        
         return $table;
     }
     

@@ -15,16 +15,18 @@ session:
 console:
     commands:
         - Davajlama\SchemaBuilder\SchemaCommand
+        - App\Auth\CreateCommand
 
 services:
     router: App\RouterFactory::createRouter
+    authenticator: App\Auth\Authenticator
 
-
+    - App\Auth\UsersRepository
     - App\Targets\TargetsRepository
     - App\Messages\MessagesRepository
     - App\Messages\MessagesStore
 
 # tables
     - {class: "App\\Messages\\MessagesTable", tags: ["schemabuilder.collector.table"]}
-    - {class: "App\\Tables\\UsersTable", tags: ["schemabuilder.collector.table"]}
     - {class: "App\\Targets\\TargetsTable", tags: ["schemabuilder.collector.table"]}
+    - {class: "App\\Auth\\UsersTable", tags: ["schemabuilder.collector.table"]}

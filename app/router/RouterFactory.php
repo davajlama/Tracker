@@ -18,6 +18,7 @@ class RouterFactory
 	{
 		$router = new RouteList;
         $router[] = new Route('/tracker.js', 'Script:master');
+        $router[] = new Route('/login', 'Login:login');
         $router[] = new Route('/logger/log', 'Logger:log');
         $router[] = new Route('/messages', 'Messages:list');
         $router[] = new Route('/targets', 'Targets:list');
