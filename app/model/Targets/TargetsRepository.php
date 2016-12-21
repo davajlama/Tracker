@@ -41,8 +41,10 @@ class TargetsRepository extends BaseRepository
      */
     public function findAll()
     {
+        $selection = $this->getTable()->order('deleted ASC, host ASC');
+        
         $list = [];
-        foreach($this->getTable()->fetchAll() as $row) {
+        foreach($selection->fetchAll() as $row) {
             $list[] = $this->mapToObject($row);
         }
         

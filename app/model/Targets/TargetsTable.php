@@ -21,7 +21,9 @@ class TargetsTable implements TableInterface
         $table->createColumn('name', Type::varcharType(255));
         $table->createColumn('host', Type::varcharType(255));
         $table->createColumn('active', Type::integerType());
-        $table->createColumn('deleted', Type::integerType());
+        $table->createColumn('deleted', Type::integerType())
+                    ->nullable(false)
+                    ->setDefaultValue(\Davajlama\SchemaBuilder\Schema\Value::numberValue(0));
         
         return $table;
     }

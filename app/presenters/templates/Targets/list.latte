@@ -2,34 +2,47 @@
 
 <form method="post">
     <input type="hidden" name="action" value="create-new" />
-    Název: <input type="text" name="name" /></br>
-    Host: <input type="text" name="host" /></br>
-    <button>Přidat</button>
+    <div class="form-group">
+        <label for="input-name">Name:</label>
+        <input type="text" name="name" class="form-control" id="input-name" placeholder="Enter name"/>
+    </div>
+    <div class="form-group">
+        <label for="input-host">Host:</label>
+        <input type="text" name="host" class="form-control" id="input-host" placeholder="Enter host">
+    </div>
+    <div class="form-group"> 
+        <button type="submit" class="btn btn-default">Craete</button>
+    </div>
 </form>
 
+</br>
 
-<table>
-    <tr>
-        <td>#</td>
-        <td>Name</td>
-        <td>Url</td>
-        <td></td>
-    </tr>
-    {foreach $list as $item}
+<table class="table table-hover">
+    <thead>
         <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Url</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {foreach $list as $item}
+        <tr class="{if $item->isActive()}success{else}danger{/if}">
             <td>{$item->getId()}</td>
             <td>{$item->getName()}</td>
             <td>{$item->getHost()}</td>
             <td>
                 {if !$item->isDeleted()}
                     {if $item->isActive()}
-                        <a n:href="deactivate, id => $item->getId()">DEACTIVATE</a>
+                        <a n:href="deactivate, id => $item->getId()" class="btn btn-warning btn-sm">DEACTIVATE</a>
                     {else}
-                        <a n:href="activate, id => $item->getId()">ACTIVATE</a>
+                        <a n:href="activate, id => $item->getId()" class="btn btn-success btn-sm">ACTIVATE</a>
                     {/if}
-                    <a n:href="delete, id => $item->getId()">DELETE</a>
+                    <a n:href="delete, id => $item->getId()" class="btn btn-danger btn-sm">DELETE</a>
                 {/if}
             </td>
         </tr>
     {/foreach}
+    </tbody>
 </table>

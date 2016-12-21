@@ -22,7 +22,7 @@ class Target
     private $active;
     
     /** @var int */
-    private $deleted;
+    private $deleted = 0;
     
     public function __construct($id = null)
     {

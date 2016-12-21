@@ -37,7 +37,7 @@ class TargetsPresenter extends SecretPresenter
     public function actionActivate($id)
     {
         $this->targetsRepository->getTable()
-                ->where('id = ? AND deleted = 0', $id)
+                ->where('id = ? AND deleted != 1', $id)
                 ->update(['active' => 1]);
 
         $this->redirect('list');
@@ -46,7 +46,7 @@ class TargetsPresenter extends SecretPresenter
     public function actionDeactivate($id)
     {
         $this->targetsRepository->getTable()
-                ->where('id = ? AND deleted = 0', $id)
+                ->where('id = ? AND deleted != 1', $id)
                 ->update(['active' => 0]);
         
         $this->redirect('list');

@@ -1,27 +1,27 @@
 {block content}
 <h1>Detail</h1>
 
-
-Message: {$base->getMessage()}</br>
-Script: {$base->getScript()}</br>
-Line: {$base->getLine()}</br>
-Column: {$base->getColumn()}</br>
-
-</hr>
-
-<table>
-    <tr>
-        <td>Url</td>
-        <td>Mobile</td>
-        <td>Tablet</td>
-        <td>Robot</td>
-        <td>Browser</td>
-        <td>Browser w/h</td>
-        <td>Display w/h</td>
-        <td>Platform</td>
-        <td>Ip</td>
-        <td>Created</td>
-    </tr>
+<h4>Message <small>{$base->getMessage()}</small></h4>
+<h4>Script <small>{$base->getScript()}</small></h4>
+<h4>Line <small>{$base->getLine()}</small></h4>
+<h4>Column <small>{$base->getColumn()}</small></h4>
+</br>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Url</th>
+            <th>Mobile</th>
+            <th>Tablet</th>
+            <th>Robot</th>
+            <th>Browser</th>
+            <th>Browser w/h</th>
+            <th>Display w/h</th>
+            <th>Platform</th>
+            <th>Ip</th>
+            <th>Created</th>
+        </tr>
+    </thead>
+    <tbody>
     {foreach $list as $item}
         <tr>
             <td>{$item->getUrl()}</td>
@@ -36,6 +36,7 @@ Column: {$base->getColumn()}</br>
             <td>{$item->getCreated()|date:'Y-m-d H:i:s'}</td>
         </tr>
     {/foreach}
+    </tbody>
 </table>
 
 

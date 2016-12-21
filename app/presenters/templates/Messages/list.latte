@@ -1,19 +1,23 @@
 {block content}
-<table>
-    <tr>
-        <td>Message</td>
-        <td>Url</td>
-        <td>Count</td>
-        <td>Time</td>
-        <td></td>
-    </tr>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Message</th>
+            <th>Url</th>
+            <th>Count</th>
+            <th>Time</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
     {foreach $list as $item}
         <tr>
             <td>{$item->getMessage()}</td>
             <td>{$item->getUrl()}</td>
             <td>{$item->getOther('count')}</td>
             <td>{$item->getCreated()|date:'Y-m-d H:i:s'}</td>
-            <td><a n:href="Messages:detail, hash => $item->getHash()">Detail</a></td>
+            <td><a n:href="Messages:detail, hash => $item->getHash()" class="btn btn-primary btn-sm">Detail</a></td>
         </tr>
     {/foreach}
+    </tbody>
 </table>
