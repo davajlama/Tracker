@@ -20,7 +20,28 @@ class MessagesRepository extends \App\BaseRepository
      */
     public function findAllNewest($limit = null)
     {
-        $selection = $this->getTable()->order('created DESC');
+        $selection = $this->getTable()->select('*, count(*) cnt')
+                        ->group('hash')
+                        ->order('created DESC');
+        
+        if($limit) {
+            $selection->limit($limit);
+        }
+        
+        $list = [];
+        foreach($selection as $row) {
+            $list[] = $entity = $this->mapToObject($row);
+            $entity->setOther('count', $row->cnt);
+        }
+        
+        return $list;
+    }
+    
+    public function findNewsetByHash($hash, $limit = null)
+    {
+        $selection = $this->getTable()
+                        ->where('hash = ?', $hash)
+                        ->order('created DESC');
         
         if($limit) {
             $selection->limit($limit);

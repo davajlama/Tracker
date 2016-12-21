@@ -29,14 +29,37 @@ class TargetsPresenter extends SecretPresenter
         $entity = new \App\Targets\Target();
         $entity->setName($request->getPost('name'));
         $entity->setHost($request->getPost('host'));
+        $entity->setActive(1);
         
         $this->targetsRepository->insert($entity);
     }
     
+    public function actionActivate($id)
+    {
+        $this->targetsRepository->getTable()
+                ->where('id = ? AND deleted = 0', $id)
+                ->update(['active' => 1]);
+
+        $this->redirect('list');
+    }
+    
+    public function actionDeactivate($id)
+    {
+        $this->targetsRepository->getTable()
+                ->where('id = ? AND deleted = 0', $id)
+                ->update(['active' => 0]);
+        
+        $this->redirect('list');
+    }
+    
     public function actionDelete($id)
     {
-        $this->targetsRepository
-                ->getTable()->where('id = ?', $id)->delete();
+        $this->targetsRepository->getTable()
+                ->where('id = ?', $id)
+                ->update([
+                    'deleted' => 1,
+                    'active' => 0,
+                ]);
         
         $this->redirect('list');
     }

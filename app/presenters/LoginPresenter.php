@@ -25,4 +25,10 @@ class LoginPresenter extends \Nette\Application\UI\Presenter
         }
     }
     
+    public function actionLogout()
+    {
+        $this->getUser()->logout();
+        $this->redirect('login');
+    }
+    
 }

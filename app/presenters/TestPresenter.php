@@ -10,9 +10,9 @@ namespace App\Presenters;
 class TestPresenter extends SecretPresenter
 {
     
-    public function actionTest()
+    public function actionTest($throw)
     {
-        
+        $this->template->throw = $throw;
     }
     
 }

@@ -1,7 +1,14 @@
 {block content}
 <h1>This page throw an error</h1>
 
-<script src="tracker.js"></script>
-<script>
-    callundefinedfunction();
-</script>
+<a n:href="Test:test, throw => 1">Throw error</a>
+
+
+{if $throw}
+    <p>Error was throwed</p>
+    
+    <script src="tracker.js"></script>
+    <script>
+        callundefinedfunction();
+    </script>
+{/if}

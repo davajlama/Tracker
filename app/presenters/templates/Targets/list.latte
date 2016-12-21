@@ -20,7 +20,16 @@
             <td>{$item->getId()}</td>
             <td>{$item->getName()}</td>
             <td>{$item->getHost()}</td>
-            <td><a n:href="delete, id => $item->getId()">DELETE</a></td>
+            <td>
+                {if !$item->isDeleted()}
+                    {if $item->isActive()}
+                        <a n:href="deactivate, id => $item->getId()">DEACTIVATE</a>
+                    {else}
+                        <a n:href="activate, id => $item->getId()">ACTIVATE</a>
+                    {/if}
+                    <a n:href="delete, id => $item->getId()">DELETE</a>
+                {/if}
+            </td>
         </tr>
     {/foreach}
 </table>

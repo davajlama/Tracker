@@ -3,17 +3,17 @@
     <tr>
         <td>Message</td>
         <td>Url</td>
-        <td>Line</td>
-        <td>Column</td>
+        <td>Count</td>
         <td>Time</td>
+        <td></td>
     </tr>
     {foreach $list as $item}
         <tr>
             <td>{$item->getMessage()}</td>
             <td>{$item->getUrl()}</td>
-            <td>{$item->getLine()}</td>
-            <td>{$item->getColumn()}</td>
+            <td>{$item->getOther('count')}</td>
             <td>{$item->getCreated()|date:'Y-m-d H:i:s'}</td>
+            <td><a n:href="Messages:detail, hash => $item->getHash()">Detail</a></td>
         </tr>
     {/foreach}
 </table>

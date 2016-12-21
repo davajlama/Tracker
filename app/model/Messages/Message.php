@@ -72,6 +72,9 @@ class Message
     /** @var int */
     private $created;
     
+    /** @var array */
+    private $others = [];
+    
     public function __construct($id = null)
     {
         $this->id = $id;
@@ -300,6 +303,17 @@ class Message
     {
         $this->ip = $ip;
         return $this;
+    }
+    
+    public function setOther($key, $value)
+    {
+        $this->others[$key] = $value;
+        return $this;
+    }
+    
+    public function getOther($key, $default = null)
+    {
+        return array_key_exists($key, $this->others) ? $this->others[$key] : $default;
     }
     
 }

@@ -23,7 +23,7 @@ class TargetsRepository extends BaseRepository
                 
         return $this->getAdapter()->getInsertId();
     }
-
+    
     /**
      * @param string $host
      * @return Target
@@ -56,9 +56,11 @@ class TargetsRepository extends BaseRepository
     public function mapToArray(Target $entity)
     {
         return [
-            'id'    => $entity->getId(),
-            'name'  => $entity->getName(),
-            'host'  => $entity->getHost(),
+            'id'        => $entity->getId(),
+            'name'      => $entity->getName(),
+            'host'      => $entity->getHost(),
+            'active'    => $entity->isActive(),
+            'deleted'   => $entity->isDeleted(),
         ];
     }
     
@@ -71,6 +73,8 @@ class TargetsRepository extends BaseRepository
         $entity = new Target($row->id);
         $entity->setName($row->name);
         $entity->setHost($row->host);
+        $entity->setActive($row->active);
+        $entity->setDeleted($row->deleted);
         
         return $entity;
     }

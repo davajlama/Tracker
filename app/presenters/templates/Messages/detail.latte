@@ -1,0 +1,40 @@
+{block content}
+<h1>Detail</h1>
+
+Message: {$base->getMessage()}</br>
+Script: {$base->getScript()}</br>
+Line: {$base->getLine()}</br>
+Column: {$base->getColumn()}</br>
+
+<hr>
+
+<table>
+    <tr>
+        <td>Url</td>
+        <td>Mobile</td>
+        <td>Tablet</td>
+        <td>Robot</td>
+        <td>Browser</td>
+        <td>Browser w/h</td>
+        <td>Display w/h</td>
+        <td>Platform</td>
+        <td>Ip</td>
+        <td>Created</td>
+    </tr>
+    {foreach $list as $item}
+        <tr>
+            <td>{$item->getUrl()}</td>
+            <td>{if $item->isMobile()}Yes{else}No{/if}</td>
+            <td>{if $item->isTablet()}Yes{else}No{/if}</td>
+            <td>{if $item->isRobot()}Yes{else}No{/if}</td>
+            <td>{$item->getBrowser()} ({$item->getBrowserVersion()})</td>
+            <td>{$item->getBrowserWidth()}/{$item->getBrowserHeight()}</td>
+            <td>{$item->getDisplayWidth()}/{$item->getDisplayHeight()}</td>
+            <td>{$item->getPlatform()}</td>
+            <td>{$item->getIp()}</td>
+            <td>{$item->getCreated()|date:'Y-m-d H:i:s'}</td>
+        </tr>
+    {/foreach}
+</table>
+
+
