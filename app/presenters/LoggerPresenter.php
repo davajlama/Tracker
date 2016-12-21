@@ -18,6 +18,9 @@ class LoggerPresenter extends \Nette\Application\UI\Presenter
     /** @var \Nette\Http\Response @inject */
     public $response;
     
+    /** @var \Nette\Http\Request @inject */
+    public $httpRequest;
+    
     public function actionLog()
     {
         $json = $this->getRequest()->getPost('data');
@@ -27,12 +30,34 @@ class LoggerPresenter extends \Nette\Application\UI\Presenter
         
         if($host && $target = $this->targetsRepository->findByHost($host)) {
             
+            $browser = new \Browser();
+            
+            $url = null;
+            if($referer = $this->httpRequest->getReferer()) {
+                $url = $referer->getAbsoluteUrl();
+            }
+            
             $entity = new \App\Messages\Message();
             $entity->setTarget($target->getId());
             $entity->setMessage($this->getValue($data, 'message'));
-            $entity->setUrl($this->getValue($data, 'url'));
+            $entity->setScript($this->getValue($data, 'script'));
             $entity->setLine($this->getValue($data, 'line'));
             $entity->setColumn($this->getValue($data, 'column'));
+            $entity->setUrl($url);
+            $entity->setIp($this->httpRequest->getRemoteAddress());
+            
+            $entity->setBrowser($browser->getBrowser());
+            $entity->setBrowserVersion($browser->getVersion());
+            $entity->setPlatform($browser->getPlatform());
+            $entity->setMobile($browser->isMobile());
+            $entity->setTablet($browser->isTablet());
+            $entity->setRobot($browser->isRobot());
+            $entity->setUserAgent($browser->getUserAgent());
+            
+            $entity->setBrowserHeight($this->getValue($data, 'browser_height'));
+            $entity->setBrowserWidth($this->getValue($data, 'browser_width'));
+            $entity->setDisplayHeight($this->getValue($data, 'display_height'));
+            $entity->setDisplayWidth($this->getValue($data, 'display_width'));
             
             $this->messagesStore->store($entity);
             $this->terminate();

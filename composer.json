@@ -21,7 +21,8 @@
 		"latte/latte": "^2.4",
 		"tracy/tracy": "^2.4",
 		"davajlama/schemabuilder": "dev-master",
-		"kdyby/console": "^2.6"
+		"kdyby/console": "^2.6",
+		"cbschuld/browser.php": "dev-master"
 	},
 	"require-dev": {
 		"nette/tester": "^1.6"

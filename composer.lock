@@ -4,21 +4,65 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "86b05f426806c47f70fda3d3b7793668",
-    "content-hash": "2329a91f2feb016a3084e6efb357a46b",
+    "hash": "c537166cdfa01cfd814913db7c13b9c1",
+    "content-hash": "7d82a7660ea473afe2db680f21b4c399",
     "packages": [
+        {
+            "name": "cbschuld/browser.php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cbschuld/Browser.php.git",
+                "reference": "50c38c01f4a3a8c43499683ccdbea322b31d5e94"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cbschuld/Browser.php/zipball/50c38c01f4a3a8c43499683ccdbea322b31d5e94",
+                "reference": "50c38c01f4a3a8c43499683ccdbea322b31d5e94",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.95-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "lib/Browser.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Schuld",
+                    "email": "chris@chrisschuld.com",
+                    "homepage": "http://chrisschuld.com"
+                }
+            ],
+            "homepage": "http://chrisschuld.com/projects/browser-php-detecting-a-users-browser-from-php.html",
+            "keywords": [
+                "browser",
+                "detection",
+                "user agent"
+            ],
+            "time": "2016-07-24 00:40:44"
+        },
         {
             "name": "davajlama/schemabuilder",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davajlama/SchemaBuilder.git",
-                "reference": "6c3211e7e88dcb54e968f33ba717576d497524cd"
+                "reference": "f04a34a2b1336162b6fac29a41b7ce575507d7b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davajlama/SchemaBuilder/zipball/6c3211e7e88dcb54e968f33ba717576d497524cd",
-                "reference": "6c3211e7e88dcb54e968f33ba717576d497524cd",
+                "url": "https://api.github.com/repos/davajlama/SchemaBuilder/zipball/f04a34a2b1336162b6fac29a41b7ce575507d7b6",
+                "reference": "f04a34a2b1336162b6fac29a41b7ce575507d7b6",
                 "shasum": ""
             },
             "require-dev": {
@@ -37,7 +81,7 @@
                 }
             ],
             "description": "Database Schema Builder",
-            "time": "2016-12-19 17:30:04"
+            "time": "2016-12-21 11:52:19"
         },
         {
             "name": "kdyby/console",
@@ -1564,7 +1608,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "davajlama/schemabuilder": 20
+        "davajlama/schemabuilder": 20,
+        "cbschuld/browser.php": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
