@@ -45,7 +45,7 @@
     window.onerror = function(msg, url, line, column, trace) {
         try {
             var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("POST", "{link //Logger:log}");
+            xmlhttp.open("POST", "{link //Logger:log|reverse}".split("").reverse().join(""));
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send("data=" + JSON.stringify({
                 "host": window.location.hostname,

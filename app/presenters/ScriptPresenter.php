@@ -17,5 +17,9 @@ class ScriptPresenter extends \Nette\Application\UI\Presenter
         $this->response->setHeader('Content-Type', 'application/javascript');
         $this->response->setExpiration('+ 1 hours');
     }
-    
+
+    public function beforeRender()
+    {
+        $this->template->addFilter('reverse', 'strrev');
+    }
 }

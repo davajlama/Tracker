@@ -1,5 +1,6 @@
 {block content}
 <h1>Homepage</h1>
 
-<p>Script</p>
-<pre>{$baseUrl|replace:'http:'}/tracker.js</pre>
+<pre>
+    &lt;script src=&quot;{$baseUrl|replaceRE:'~https?:~'}/tracker.js&quot;&gt;&lt;/script&gt;
+</pre>
