@@ -57,12 +57,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/davajlama/SchemaBuilder.git",
-                "reference": "f04a34a2b1336162b6fac29a41b7ce575507d7b6"
+                "reference": "e81d24a253f63e86725b1f56bc9bc2af3f45de4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davajlama/SchemaBuilder/zipball/f04a34a2b1336162b6fac29a41b7ce575507d7b6",
-                "reference": "f04a34a2b1336162b6fac29a41b7ce575507d7b6",
+                "url": "https://api.github.com/repos/davajlama/SchemaBuilder/zipball/e81d24a253f63e86725b1f56bc9bc2af3f45de4b",
+                "reference": "e81d24a253f63e86725b1f56bc9bc2af3f45de4b",
                 "shasum": ""
             },
             "require-dev": {
@@ -81,7 +81,7 @@
                 }
             ],
             "description": "Database Schema Builder",
-            "time": "2016-12-21 11:52:19"
+            "time": "2016-12-22 12:59:34"
         },
         {
             "name": "kdyby/console",

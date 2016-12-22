@@ -5,6 +5,7 @@ namespace App\Targets;
 use Davajlama\SchemaBuilder\Collector\TableInterface;
 use Davajlama\SchemaBuilder\Schema\Table;
 use Davajlama\SchemaBuilder\Schema\Type;
+use Davajlama\SchemaBuilder\Schema\Value;
 
 /**
  * Description of TargetsTable
@@ -20,10 +21,10 @@ class TargetsTable implements TableInterface
         $table->createId();
         $table->createColumn('name', Type::varcharType(255));
         $table->createColumn('host', Type::varcharType(255));
-        $table->createColumn('active', Type::integerType());
-        $table->createColumn('deleted', Type::integerType())
+        $table->createColumn('active', Type::tinyIntType());
+        $table->createColumn('deleted', Type::tinyIntType())
                     ->nullable(false)
-                    ->setDefaultValue(\Davajlama\SchemaBuilder\Schema\Value::numberValue(0));
+                    ->setDefaultValue(Value::numberValue(0));
         
         return $table;
     }

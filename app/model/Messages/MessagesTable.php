@@ -24,9 +24,9 @@ class MessagesTable implements TableInterface
         $table->createColumn('url', Type::varcharType(255));
         $table->createColumn('line', Type::integerType());
         $table->createColumn('column', Type::integerType());
-        $table->createColumn('is_mobile', Type::integerType());
-        $table->createColumn('is_tablet', Type::integerType());
-        $table->createColumn('is_robot', Type::integerType());
+        $table->createColumn('is_mobile', Type::tinyIntType());
+        $table->createColumn('is_tablet', Type::tinyIntType());
+        $table->createColumn('is_robot', Type::tinyIntType());
         $table->createColumn('browser', Type::varcharType(255));
         $table->createColumn('browser_version', Type::varcharType(255));
         $table->createColumn('browser_width', Type::integerType());
