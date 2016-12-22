@@ -15,6 +15,7 @@ class ScriptPresenter extends \Nette\Application\UI\Presenter
     public function actionMaster()
     {
         $this->response->setHeader('Content-Type', 'application/javascript');
+        $this->response->setHeader('Cache-Control', 'public, max-age=3600');
     }
     
 }
