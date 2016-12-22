@@ -18,8 +18,9 @@ class LoginPresenter extends \Nette\Application\UI\Presenter
             
             try {
                 $this->getUser()->login($username, $password);
+                $this->getUser()->setExpiration(0, true);
                 $this->redirect('Homepage:index');
-            } catch(AuthenticationException $e) {
+            } catch(\Nette\Security\AuthenticationException $e) {
                 $this->flashMessage('Bad credentials');
             }
         }
