@@ -1,44 +1,22 @@
-Nette Web Project
-=================
+JS Tracker
+==========
+Simple application for track and log javascript errors written in Nette Framework
 
-This is a simple, skeleton application using the [Nette](https://nette.org). This is meant to
-be used as a starting point for your new projects.
+**WARNING**: THIS IS STILL DEVELOPMENT VERSION
 
-[Nette](https://nette.org) is a popular tool for PHP web development.
-It is designed to be the most usable and friendliest as possible. It focuses
-on security and performance and is definitely one of the safest PHP frameworks.
+Install
+-------
+    1) clone this project
+    2) run composer install
+    3) create config.local.neon and set databse config to mysql
+    4) run php bin/console.php schema:update --dump or --force
+    5) run php bin/console.php user:create <username> <password>
+    6) run php -S localhost:8080 www/index.php
+    7) sign in to appliaction
+    8) create a target (example.localhost)
+    9) put js from homepage to your project (example.localhost)
+    10) throw JS error :)
 
-
-Requirements
-------------
-
-PHP 5.6 or higher.
-
-
-Installation
-------------
-
-The best way to install Web Project is using Composer. If you don't have Composer yet,
-download it following [the instructions](https://doc.nette.org/composer). Then use command:
-
-	composer create-project nette/web-project path/to/install
-	cd path/to/install
-
-
-Make directories `temp/` and `log/` writable.
-
-
-Web Server Setup
-----------------
-
-The simplest way to get started is to start the built-in PHP server in the root directory of your project:
-
-	php -S localhost:8000 -t www
-
-Then visit `http://localhost:8000` in your browser to see the welcome page.
-
-For Apache or Nginx, setup a virtual host to point to the `www/` directory of the project and you
-should be ready to go.
-
-**It is CRITICAL that whole `app/`, `log/` and `temp/` directories are not accessible directly
-via a web browser. See [security warning](https://nette.org/security-warning).**
+Tips
+----
+    - project HOST must be same as TARGET (host = foo.bar.cz then target must be foo.bar.cz)
