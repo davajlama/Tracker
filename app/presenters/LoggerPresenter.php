@@ -23,7 +23,7 @@ class LoggerPresenter extends \Nette\Application\UI\Presenter
     
     public function actionLog()
     {
-        $json = $this->getRequest()->getPost('data');
+        $json = file_get_contents("php://input");
         $data = \Nette\Utils\Json::decode($json);
         
         $host = isset($data->host) ? $data->host : null;
