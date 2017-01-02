@@ -24,6 +24,7 @@ class MessagesTable implements TableInterface
         $table->createColumn('url', Type::varcharType(255));
         $table->createColumn('line', Type::integerType());
         $table->createColumn('column', Type::integerType());
+        $table->createColumn('snippet', Type::textType());
         $table->createColumn('is_mobile', Type::tinyIntType());
         $table->createColumn('is_tablet', Type::tinyIntType());
         $table->createColumn('is_robot', Type::tinyIntType());

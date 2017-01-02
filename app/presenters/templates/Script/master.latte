@@ -2,6 +2,15 @@
 
 (function(){
 
+    var snippet = function(line, count) {
+        if(document.documentElement && document.documentElement.outerHTML) {
+            var ctx = document.documentElement.outerHTML;
+            return ctx.split('\n').slice(line - count, line + count).join('\n');
+        }
+
+        return 'unsupported snippet';
+    }
+
     var getDisplayWidth = function() {
         if(window.screen && window.screen.availWidth) {
             return window.screen.availWidth;
@@ -57,7 +66,8 @@
                 "browser_width": getBrowserWidth(),
                 "browser_height": getBrowserHeight(),
                 "display_width": getDisplayWidth(),
-                "display_height": getDisplayHeight()
+                "display_height": getDisplayHeight(),
+                "snippet": snippet(line, 10)
             }));
         } catch(e) {}
     }

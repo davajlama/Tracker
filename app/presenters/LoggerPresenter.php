@@ -62,6 +62,7 @@ class LoggerPresenter extends \Nette\Application\UI\Presenter
         $entity->setColumn($this->getValue($data, 'column'));
         $entity->setUrl($url);
         $entity->setIp($this->httpRequest->getRemoteAddress());
+        $entity->setSnippet($this->getValue($data, 'snippet'));
 
         $entity->setBrowser($browser->getBrowser());
         $entity->setBrowserVersion($browser->getVersion());

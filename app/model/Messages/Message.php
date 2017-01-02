@@ -65,6 +65,9 @@ class Message
     
     /** @var string */
     private $ip;
+
+    /** @var string */
+    private $snippet;
     
     /** @var string */
     private $hash;
@@ -304,7 +307,18 @@ class Message
         $this->ip = $ip;
         return $this;
     }
-    
+
+    public function getSnippet()
+    {
+        return $this->snippet;
+    }
+
+    public function setSnippet($snippet)
+    {
+        $this->snippet = $snippet;
+        return $this;
+    }
+
     public function setOther($key, $value)
     {
         $this->others[$key] = $value;

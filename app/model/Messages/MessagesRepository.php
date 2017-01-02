@@ -65,6 +65,7 @@ class MessagesRepository extends \App\BaseRepository
             'url'               => $entity->getUrl(),
             'line'              => $entity->getLine(),
             'column'            => $entity->getColumn(),
+            'snippet'           => $entity->getSnippet(),
             'hash'              => $entity->getHash(),
             'created'           => $entity->getCreated(),
             'is_mobile'         => $entity->isMobile(),
@@ -105,6 +106,7 @@ class MessagesRepository extends \App\BaseRepository
         $entity->setPlatform($row->platform);
         $entity->setUserAgent($row->user_agent);
         $entity->setIp($row->ip);
+        $entity->setSnippet($row->snippet);
         
         return $entity;
     }
