@@ -14,7 +14,15 @@ class MessagesRepository extends \App\BaseRepository
     {
         $this->getTable()->insert($this->mapToArray($entity));
     }
-    
+
+    /**
+     * @return FilterQuery
+     */
+    public function getFilterQuery()
+    {
+        return new FilterQuery($this);
+    }
+
     /**
      * @return Message[]
      */
